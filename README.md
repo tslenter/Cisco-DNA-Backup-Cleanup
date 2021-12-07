@@ -5,7 +5,7 @@ Needed:
 - Linux server for backup
 - BASH
 - SCP
-- Cisco DNA Controller
+- Cisco DNA Controller (Version: 1.6.551 tested)
 
 ## 1. License
 
