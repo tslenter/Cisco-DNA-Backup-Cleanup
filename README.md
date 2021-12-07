@@ -55,7 +55,11 @@ Example:
 ## Variables to edit and explanation:
 
 DEBUG="/home/dnac/scripts/cleanup_debug.log" #Debug log location and filename
+
 BACKUP_LOC="/home/dnac"                      #Location of the backup
+
 FIND_LOC="/usr/bin/find"                     #Location of the "find" binary
+
 TR_LOC="/usr/bin/tr"                         #Location of the "tr" binary
+
 BACKUP_DAYS="+65"                            #Enter amount of days. Don't forget to add the +
