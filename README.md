@@ -39,15 +39,25 @@ Clone the git and change the variables to the correct path
 4) ==== EDIT VARIABLES OF THE "cleanup" FILE ====
 5) Add log rotation for the debug file:
 Example:
+
 #DNAC Rotation
+
 /home/dnac/scripts/cleanup_debug.log{ <<<--- adjust path
-  rotate 52
-  maxsize 100M
-  weekly
-  missingok
-  notifempty
-  postrotate
-  endscript
+
+   rotate 52
+ 
+   maxsize 100M
+   
+   weekly
+   
+   missingok
+   
+   notifempty
+   
+   postrotate
+   
+   endscript
+
 }
 6) Add script to cron (crontab -e):
 0 */12 * * * /home/dnac/scripts/cleanup
