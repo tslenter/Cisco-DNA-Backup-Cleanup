@@ -59,6 +59,7 @@ Example:
    endscript
 
 }
+
 6) Add script to cron (crontab -e):
 0 */12 * * * /home/dnac/scripts/cleanup
 
