@@ -32,3 +32,21 @@ E-mail: info@remotesyslog.com
 ## Usage:
 Clone the git and change the variables to the correct path
 
+1) git clone https://github.com/tslenter/Cisco-DNA-Backup-Cleanup
+2) cd Cisco-DNA-Backup-Cleanup
+3) chmod +x cleanup
+4) ==== EDIT VARIABLES OF THE "cleanup" FILE ====
+5) Add log rotation for the debug file:
+Example:
+#DNAC Rotation
+/home/dnac/scripts/cleanup_debug.log{ <<<--- adjust path
+  rotate 52
+  maxsize 100M
+  weekly
+  missingok
+  notifempty
+  postrotate
+  endscript
+}
+6) Add script to cron (crontab -e):
+0 */12 * * * /home/dnac/scripts/cleanup
