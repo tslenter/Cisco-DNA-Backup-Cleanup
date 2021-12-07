@@ -56,7 +56,7 @@ Example:
 
 6) Add script to cron (crontab -e):
 ```
-0 */12 * * * /home/dnac/scripts/cleanup
+0 */12 * * * /home/dnac/scripts/cleanup <<<--- adjust path
 ```
 
 ## Variables to edit and explanation:
