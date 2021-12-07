@@ -43,6 +43,10 @@ Example:
 
 #DNAC Rotation
 ```
+nano /etc/logrotate.d/dnac_rotation
+
+#Add:
+
 /home/dnac/scripts/cleanup_debug.log{ <<<--- adjust path
   rotate 52
   maxsize 100M
