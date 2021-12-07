@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Add DNAC rotation for logging, prevents filling up the disk by log
+#Add DNAC rotation for logging, prevents full disk
 
 #DNAC Rotation
 #/home/dnac/scripts/cleanup_debug.log{ <<<--- adjust path
