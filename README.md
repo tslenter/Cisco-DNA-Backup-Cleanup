@@ -9,7 +9,7 @@ Needed:
 
 ## 1. License
 
-"Cisco-DNA-Backup-Cleanup" is a free application that can be used to cycle backups of Cisco DNA on a external server.
+"Cisco-DNA-Backup-Cleanup" is a free application that can be used to cycle backups of Cisco DNA on a external fileserver.
 
 Copyright (C) 2021 Tom Slenter
 
