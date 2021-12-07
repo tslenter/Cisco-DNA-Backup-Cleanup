@@ -41,36 +41,29 @@ Clone the git and change the variables to the correct path
 Example:
 
 #DNAC Rotation
-
+```
 /home/dnac/scripts/cleanup_debug.log{ <<<--- adjust path
-
-   rotate 52
- 
-   maxsize 100M
-   
-   weekly
-   
-   missingok
-   
-   notifempty
-   
-   postrotate
-   
-   endscript
-
+  rotate 52
+  maxsize 100M
+  weekly
+  missingok
+  notifempty
+  postrotate
+  endscript
 }
+```
 
 6) Add script to cron (crontab -e):
+```
 0 */12 * * * /home/dnac/scripts/cleanup
+```
 
 ## Variables to edit and explanation:
 
+```
 DEBUG="/home/dnac/scripts/cleanup_debug.log" #Debug log location and filename
-
 BACKUP_LOC="/home/dnac"                      #Location of the backup
-
 FIND_LOC="/usr/bin/find"                     #Location of the "find" binary
-
 TR_LOC="/usr/bin/tr"                         #Location of the "tr" binary
-
 BACKUP_DAYS="+65"                            #Enter amount of days. Don't forget to add the +
+```
