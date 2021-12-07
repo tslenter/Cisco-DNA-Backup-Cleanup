@@ -1,0 +1,52 @@
+#!/bin/bash
+
+#Add DNAC rotation for logging, prevents filling up the disk by log
+
+#DNAC Rotation
+#/home/dnac/scripts/cleanup_debug.log{ <<<--- adjust path
+#  rotate 52
+#  maxsize 100M
+#  weekly
+#  missingok
+#  notifempty
+#  postrotate
+#  endscript
+#}
+
+#Add script to cron to run ever 12 hours
+#crontab -e
+#0 */12 * * * /home/dnac/scripts/cleanup
+
+DEBUG="/home/dnac/scripts/cleanup_debug.log"
+BACKUP_LOC="/home/dnac"
+FIND_LOC="/usr/bin/find"
+TR_LOC="/usr/bin/tr"
+BACKUP_DAYS="+65"
+
+touch -a $DEBUG
+BCK_LIST1=$($FIND_LOC $BACKUP_LOC/backup-metadata -mtime $BACKUP_DAYS -print)
+if [ -z "$BCK_LIST1" ]
+then
+    echo "Nothing to do ..." >> $DEBUG
+else
+    for lines in $BCK_LIST1
+        do
+        BCK_LIST2=$(echo $lines | cut -f1 -d'.' | cut -f5 -d'/')
+        BCK_LIST3=$($FIND_LOC $BACKUP_LOC -name *$BCK_LIST2*)
+        BCK_LIST4=$($FIND_LOC $BACKUP_LOC -type f -name *$BCK_LIST2*)
+        FINAL="$BCK_LIST3 $BCK_LIST4"
+        echo "Show files for deletion!" >> $DEBUG
+        echo $FINAL | $TR_LOC " " "\n" >> $DEBUG
+        echo "Start removal ..." >> $DEBUG
+        if [ -z "$FINAL" ]
+        then
+             echo "Nothing to do ..." >> $DEBUG
+        else
+            for remove in $FINAL
+            do
+                rm -rfv $remove >> $DEBUG
+            done
+            echo "Removal done ..." >> $DEBUG
+        fi
+    done
+fi
