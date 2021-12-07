@@ -4,6 +4,7 @@ Cisco DNA server side cleanup script.
 Needed:
 - Linux server for backup
 - BASH
+- SCP
 
 ## 1. License
 
