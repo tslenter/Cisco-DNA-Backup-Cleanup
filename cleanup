@@ -31,7 +31,7 @@ then
 else
     for lines in $BCK_LIST1
         do
-        BCK_LIST2=$(echo $lines | cut -f1 -d'.' | cut -f5 -d'/')
+        BCK_LIST2=$(echo $lines | cut -f1 -d'.' | xargs basename)
         BCK_LIST3=$($FIND_LOC $BACKUP_LOC -name *$BCK_LIST2*)
         BCK_LIST4=$($FIND_LOC $BACKUP_LOC -type f -name *$BCK_LIST2*)
         FINAL="$BCK_LIST3 $BCK_LIST4"
